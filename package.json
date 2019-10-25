@@ -1,0 +1,11 @@
+{
+  "name": "learning-by-doing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:seognil-study/learning-by-doing.git",
+  "author": "seognil-lab <seognil@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^1.12.4"
+  }
+}
