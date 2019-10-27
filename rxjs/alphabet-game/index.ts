@@ -1,8 +1,12 @@
-// RxJS v6+
-import { interval, fromEvent, Subject, merge } from 'rxjs';
-import { scan, startWith, map, takeWhile, switchMap, share, withLatestFrom } from 'rxjs/operators';
+// https://github.com/seognil-study/learning-by-doing/tree/master/rxjs/alphabet-game
+// https://stackblitz.com/edit/rxjslc-alphabet-game
 
-// * ------------------------------------------------
+// * ================================================================================
+
+import { fromEvent, interval, merge, Subject } from 'rxjs';
+import { map, scan, share, startWith, switchMap, takeWhile, withLatestFrom } from 'rxjs/operators';
+
+// * ------------------------------------------------ types
 
 type CharInfo = {
   pos: number;
@@ -15,9 +19,10 @@ interface GameState {
   level: number;
 }
 
+// * inputkey , remain char list
 type KeyRemainPair = [string, CharInfo[]];
 
-// * ------------------------------------------------
+// * ------------------------------------------------ data and helper
 
 const gameHeight = 15;
 const gameWidth = 30;
@@ -30,7 +35,7 @@ const randomLetter = () => String.fromCharCode(~~(Math.random() * 26) + 97);
 
 const $container = document.querySelector('#container');
 
-// * ------------------------------------------------
+// * ------------------------------------------------ render methods
 
 const renderGame = ({ score, level, remain }: GameState) => {
   $container.innerHTML = [
@@ -44,7 +49,7 @@ const renderGameOver = () => {
   $container.innerHTML += '<br/>GAME OVER!';
 };
 
-// * ------------------------------------------------
+// * ------------------------------------------------ the game
 
 const initState: GameState = { score: 0, remain: [], level: 1 };
 
@@ -85,5 +90,7 @@ const game$ = merge(
   }, initState),
   takeWhile(({ remain }) => remain.length < gameHeight),
 );
+
+// * ------------------------------------------------ start
 
 game$.subscribe(renderGame, null, renderGameOver);

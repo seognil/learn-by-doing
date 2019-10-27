@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .parent {
+        border-spacing: 5px;
+        width: 50%;
+        padding: 0.5em;
+      }
+
+      .parent.perspective {
+        perspective: 50em;
+      }
+
+      .child {
+        margin: 0.5em;
+        max-width: 2em;
+        min-width: 2em;
+        height: 2.8em;
+        padding: 0.5em;
+        display: table-cell;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+      }
+
+      .parent.perspective .child {
+        transform: rotateX(40deg);
+        transition: all 0.3s ease-in;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info">Train Your Memory!</div>
+    <div id="grid" class="grid parent perspective">
+      <div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+      </div>
+      <div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+      </div>
+      <div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+      </div>
+    </div>
+
+    <script src="index.ts"></script>
+  </body>
+</html>
