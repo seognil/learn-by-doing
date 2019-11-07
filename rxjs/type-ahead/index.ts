@@ -67,8 +67,8 @@ const mockSearchMine$ = (val: string) =>
 // * -------------------------------- search from listDataGithubUrl
 
 const mockFetchGithub$ = from(fetch(listDataGithubUrl).then((blob) => blob.json())).pipe(
-  tap((e) => log('expensive fetching...')),
   map((data) => data.map((e) => `${e.city}, ${e.state}`)),
+  tap(() => log('forging fetched data')),
   shareReplay(),
 );
 

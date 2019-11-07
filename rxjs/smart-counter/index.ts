@@ -3,8 +3,8 @@
 
 // * ================================================================================
 
-import { animationFrameScheduler, concat, fromEvent, interval } from 'rxjs';
-import { map, mapTo, scan, startWith, switchMap, take, takeWhile, tap } from 'rxjs/operators';
+import { animationFrameScheduler, concat, fromEvent, of } from 'rxjs';
+import { map, mapTo, repeat, startWith, switchMap, take, takeWhile, tap } from 'rxjs/operators';
 
 // * ------------------------------------------------
 
@@ -29,9 +29,9 @@ const inputStream$ = fromEvent($input, 'change').pipe(
 
 // * we all love raf :)
 const rafInterval$ = () =>
-  interval(0, animationFrameScheduler).pipe(
-    scan((a) => ((a[1] = Date.now()), a), [Date.now()]),
-    map(([a, b]) => b - a),
+  of(Date.now(), animationFrameScheduler).pipe(
+    map((start) => Date.now() - start),
+    repeat(),
   );
 
 const singleAnime$ = ([last, next]) =>

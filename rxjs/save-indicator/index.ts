@@ -20,6 +20,7 @@ const getStamp = () => format(Date.now(), 'yyyy/MM/dd hh:mm');
 
 const mockSave = (val) =>
   new Promise((res, rej) => {
+    console.warn('called, should save: ', val);
     // mockLocalStorageSave(val);
     setTimeout(() => {
       res('200');
