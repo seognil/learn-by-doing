@@ -20,7 +20,7 @@ ReactiveX 的 JS 实现
 
 ## 为什么要用 RxJS
 
-使得能用更少和清晰的代码完成交互功能
+能用更少和清晰的代码完成异步业务
 
 ## 关于 RxJS
 
@@ -39,7 +39,7 @@ pipe(publish()) as ConnectableObservable<any>;
 ```
 
 - [Pipe operator cannot infer return type as ConnectableObservable #2972](https://github.com/ReactiveX/rxjs/issues/2972)
-- [Property 'connect' does not exist on type 'Observable<any>' | RXJS multicast](https://stackoverflow.com/questions/54265143/property-connect-does-not-exist-on-type-observableany-rxjs-multicast)
+- [Property 'connect' does not exist on type 'Observable\<any\>' | RXJS multicast](https://stackoverflow.com/questions/54265143/property-connect-does-not-exist-on-type-observableany-rxjs-multicast)
 
 ### RxJS 版本
 
