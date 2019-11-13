@@ -1,49 +1,53 @@
 # LEARNING BY DOING
 
-## What is it
+## What is it 这是什么
 
-A codebase to understanding frontend development
+A codebase to understanding frontend development.  
+Including code implemented and study materials gathered by myself.
 
-Including code implemented and study materials gathered by myself
+一个理解前端开发工作的代码库。
+包含我自己实现的代码和整理的学习资源。
 
-## Why this
+## Why this 为什么
 
 Because it's the only way to learn how to code -- by practice
 
+因为这是学习写代码的唯一方式 —— 动手练习！
+
 ## TOC
 
-- **Language Fundamental**
-  - [ ] ECMAScript 6
-  - [ ] TypeScript
-- **JavaScript Code Toolbox**
-  - function
-    - [ ] debounce
-    - [ ] throttle
-    - [ ] currying
-    - [ ] cloneDeep
-    - [ ] deepFlatten
-    - [ ] difference
-    - [ ] unique
-    - [ ] union
-  - polyfill
-    - [ ] Promise
-    - [ ] instanceof
-    - [ ] bind
-    - [ ] call
-    - [ ] apply
-    - [ ] new (create Class without `new` operator)
-    - [ ] extends (mix inheritance)
-    - [ ] JSON.stringify
-    - [ ] JSON.parse
-- **Systems Theory**
-  - [ ] algorithm
-  - [ ] design-patterns
-- **Lib Usage**
-  - [x] [rxjs](./rxjs/)
-  - [ ] webpack
-- **Lib implement**
-  - [ ] tiny-mvvm
+- **JavaScript**
+  - **Language Fundamental**
+    - [ ] ECMAScript 6
+    - [ ] TypeScript
+  - **codebase**
+    - [ ] useful functions
+    - [ ] tricks
+    - [ ] polyfills
+  - **tools usage**
+    - [x] [rudux](./redux/)
+    - [x] [rxjs](./rxjs/)
+    - [ ] Webpack
+  - **reimplement**
+    - [x] [redux](./redux/redux-rebuild-core/)
+    - [ ] tiny-mvvm
+    - [ ] tiny-react
+    - [ ] tiny-vue
+- **Courses**
+  - [x] [Javascript 30](./JavaScript30/)
+- **Computer Science by JS**
+  - [ ] Algorithm
+  - [ ] Design Patterns
+
+## Playground Equipment
+
+- [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+- [ts-node](https://github.com/TypeStrong/ts-node)
+- [Parcel](https://parceljs.org/)
+- [Create React App](https://github.com/facebook/create-react-app)
+- [Vue CLI](https://cli.vuejs.org/)
 
 ## TODO
 
 - [ ] toc auto building
+- [ ] requirement readme
