@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Get User Media Code Along!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="photobooth">
+      <div class="controls">
+        <button onClick="takePhoto()">Take Photo</button>
+        <div class="rgb">
+          <label for="rmin">Red Min:</label>
+          <input type="range" min="0" max="255" name="rmin" />
+          <label for="rmax">Red Max:</label>
+          <input type="range" min="0" max="255" name="rmax" />
+
+          <br />
+
+          <label for="gmin">Green Min:</label>
+          <input type="range" min="0" max="255" name="gmin" />
+          <label for="gmax">Green Max:</label>
+          <input type="range" min="0" max="255" name="gmax" />
+
+          <br />
+
+          <label for="bmin">Blue Min:</label>
+          <input type="range" min="0" max="255" name="bmin" />
+          <label for="bmax">Blue Max:</label>
+          <input type="range" min="0" max="255" name="bmax" />
+        </div>
+      </div>
+
+      <canvas class="photo"></canvas>
+      <video class="player"></video>
+      <div class="strip"></div>
+    </div>
+
+    <audio class="snap" src="http://wesbos.com/demos/photobooth/snap.mp3" hidden></audio>
+
+    <script>
+      const $video = document.querySelector('.player');
+      const $canvas = document.querySelector('.photo');
+      const ctx = $canvas.getContext('2d');
+      const $strip = document.querySelector('.strip');
+      const $snap = document.querySelector('.snap');
+
+      const playSound = () => {
+        $snap.currentTime = 0;
+        $snap.play();
+      };
+
+      navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+        $video.srcObject = stream;
+        $video.play();
+      });
+
+      const imageEffect = (imageData) => {
+        const dd = imageData.data;
+        const bias = 20 * 4;
+        for (let i = 0; i < dd.length; i += 4) {
+          // ? gpu parallel calculation ?
+
+          // dd[i + 0] = 0;
+          // dd[i + 1] = 0;
+          // dd[i + 2] = 0;
+
+          // dd[i + 0] /= 2;
+          // dd[i + 1] /= 2;
+          // dd[i + 2] /= 2;
+
+          // dd[i + 0 - bias * 1] = dd[i + 0];
+          // dd[i + 1 - bias * 0] = dd[i + 1];
+          // dd[i + 2 + bias * 1.2] = dd[i + 2];
+
+          // dd[i + 0 - bias * 1] = dd[i + 0];
+          // dd[i + 1 - bias * 0] = dd[i + 1];
+          // dd[i + 2 - bias * 2] = dd[i + 2];
+        }
+        return imageData;
+      };
+
+      const paint = (e) => {
+        const width = $video.videoWidth;
+        const height = $video.videoHeight;
+        $canvas.width = width;
+        $canvas.height = height;
+
+        ctx.drawImage($video, 0, 0, width, height);
+
+        let imageData = ctx.getImageData(0, 0, width, height);
+
+        // imageData = imageEffect(imageData);
+
+        ctx.putImageData(imageData, 0, 0);
+
+        requestAnimationFrame(paint);
+      };
+
+      const takePhoto = () => {
+        const imageData = $canvas.toDataURL('image/jpeg');
+        const a = document.createElement('a');
+        a.href = imageData;
+        a.download = 'the javascript 30 tutorial webcam';
+        const img = document.createElement('img');
+        img.src = imageData;
+        a.appendChild(img);
+        $strip.insertBefore(a, $strip.firstChild);
+
+        playSound();
+      };
+
+      $video.addEventListener('canplay', paint);
+    </script>
+  </body>
+</html>

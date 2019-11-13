@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Speech Synthesis</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="voiceinator">
+      <h1>The Voiceinator 5000</h1>
+
+      <select name="voice" id="voices">
+        <option value="">Select A Voice</option>
+      </select>
+
+      <label for="rate">Rate:</label>
+      <input name="rate" type="range" min="0" max="3" value="1" step="0.1" />
+
+      <label for="pitch">Pitch:</label>
+
+      <input name="pitch" type="range" min="0" max="2" step="0.1" />
+      <textarea name="text">Hello! I love JavaScript 👍</textarea>
+      <button id="stop">Stop!</button>
+      <button id="speak">Speak</button>
+    </div>
+
+    <script>
+      const msg = new SpeechSynthesisUtterance();
+      let voices = [];
+      const $voicesDropdown = document.querySelector('[name="voice"]');
+      const $options = document.querySelectorAll('[type="range"], [name="text"]');
+      const $speakButton = document.querySelector('#speak');
+      const $stopButton = document.querySelector('#stop');
+      const $textarea = document.querySelector('textarea');
+      msg.text = $textarea.value;
+
+      const stop = () => speechSynthesis.cancel();
+      const speak = () => {
+        stop();
+        speechSynthesis.speak(msg);
+      };
+
+      const loadVoice = () => {
+        voices = speechSynthesis.getVoices();
+        $voicesDropdown.innerHTML = voices
+          .map(({ name, lang }) => `<option value="${name}">${name} (${lang})</option>`)
+          .join('');
+      };
+
+      speechSynthesis.addEventListener('voiceschanged', loadVoice);
+
+      $voicesDropdown.addEventListener('change', (e) => {
+        msg.voice = voices.find((v) => v.name == e.target.value);
+        speak();
+      });
+
+      $options.forEach((dom) => {
+        dom.addEventListener('input', (e) => {
+          msg[e.target.name] = e.target.value;
+          if (e.target.matches('input')) speak();
+        });
+      });
+
+      $speakButton.addEventListener('click', speak);
+      $stopButton.addEventListener('click', stop);
+    </script>
+  </body>
+</html>

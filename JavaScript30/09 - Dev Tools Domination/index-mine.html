@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+      function makeGreen() {
+        const p = document.querySelector('p');
+        p.style.color = '#BADA55';
+        p.style.fontSize = '50px';
+      }
+
+      // Regular
+      console.log('123');
+
+      // Interpolated
+      console.log('123 %s shit', 'color:red');
+
+      // Styled
+      console.log('123 %c shit', 'color:red');
+
+      // warning!
+      console.warn('123');
+
+      // Error :|
+      console.error('123');
+
+      // Info
+      console.info('123');
+
+      // Testing
+      console.assert(1 != 2, '123');
+
+      // clearing
+      // console.clear();
+
+      // Viewing DOM Elements
+      const p = document.querySelector('p')
+      console.log(p);
+      // console.dir(document.querySelector('p'));
+
+      // Grouping together
+      console.groupCollapsed('123');
+      console.warn('lcdebug 10-10 113027', '', undefined);
+      console.groupCollapsed('123');
+      console.warn('lcdebug 10-10 113027', '', undefined);
+      console.groupEnd('123');
+      console.warn('lcdebug 10-10 113027', '', undefined);
+      console.groupEnd('123');
+
+      // counting
+      console.count('123');
+      console.count('123');
+      console.count('123');
+
+      // timing
+      console.time('123');
+      console.timeEnd('123');
+    </script>
+  </body>
+</html>

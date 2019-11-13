@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <script>
+      const canvas = document.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.globalCompositeOperation = 'color-burn';
+
+      const updateCtx = ([a, b], [x, y], hue, width) => {
+        ctx.strokeStyle = `hsla(${hue}, 70%, 70%, 1)`;
+        ctx.lineWidth = width;
+
+        ctx.beginPath();
+        ctx.moveTo(a, b);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      };
+
+      let [lastX, lastY] = [0, 0];
+      let isIdle = true;
+      let hue = 0;
+      let width = 0;
+
+      const drawing = (e) => {
+        if (isIdle) return;
+        hue = ++hue % 360;
+        width = ++width % 100;
+        updateCtx([lastX, lastY], [e.offsetX, e.offsetY], hue, Math.abs(width - 50));
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      };
+
+      canvas.addEventListener('mousemove', drawing);
+      canvas.addEventListener('mousedown', (e) => {
+        isIdle = false;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      });
+      canvas.addEventListener('mouseup', (e) => {
+        isIdle = true;
+      });
+      // canvas.addEventListener('mouseleave', (e) => {
+      //   isIdle = true;
+      // });
+    </script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+    </style>
+  </body>
+</html>

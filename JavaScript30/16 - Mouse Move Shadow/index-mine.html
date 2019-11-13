@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mouse Shadow</title>
+  </head>
+  <body>
+    <div class="hero">
+      <h1 contenteditable>🔥WOAH!</h1>
+    </div>
+
+    <style>
+      html {
+        color: black;
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+      }
+
+      h1 {
+        text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
+        font-size: 100px;
+        /* color: transparent; */
+      }
+    </style>
+
+    <script>
+      const $hero = document.querySelector('.hero');
+      const $h1 = $hero.querySelector('h1');
+
+      const fancyShadow = (dx, dy) =>
+        ($h1.style.textShadow = [
+          `${+dx}px ${+dy}px 0 hsla(0, 100%, 50%, 0.7)`,
+          `${+dy}px ${-dx}px 0 hsla(90, 100%, 50%, 0.7)`,
+          `${-dx}px ${-dy}px 0 hsla(180, 100%, 50%, 0.7)`,
+          `${-dy}px ${+dx}px 0 hsla(270, 100%, 50%, 0.7)`,
+        ].join(', '));
+
+      fancyShadow(0, 0);
+
+      // * ----------------
+      $hero.addEventListener('mousemove', (e) => {
+        const { x, y } = e;
+        const { clientWidth: X, clientHeight: Y } = $hero;
+        const [dx, dy] = [x - X / 2, y - Y / 2].map((e) => e / 5);
+        fancyShadow(dx, dy);
+      });
+
+      // * ----------------
+      let tick = 0;
+      const anime = () => {
+        const [dx, dy] = [Math.sin, Math.cos]
+          .map((fn) => fn(tick++ / 2))
+          .map((e) => (~~(Math.random() * 3) * 3 + 3) * e);
+
+        fancyShadow(dx, dy);
+
+        requestAnimationFrame(anime);
+      };
+
+      // anime();
+
+      // * ----------------
+    </script>
+  </body>
+</html>

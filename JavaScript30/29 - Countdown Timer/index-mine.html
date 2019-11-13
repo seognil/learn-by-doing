@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Countdown Timer</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="timer">
+      <div class="timer__controls">
+        <button data-time="20" class="timer__button">20 Secs</button>
+        <button data-time="300" class="timer__button">Work 5</button>
+        <button data-time="900" class="timer__button">Quick 15</button>
+        <button data-time="1200" class="timer__button">Snack 20</button>
+        <button data-time="3600" class="timer__button">Lunch Break</button>
+        <form name="customForm" id="custom">
+          <input type="text" name="minutes" placeholder="Enter Minutes" />
+        </form>
+      </div>
+      <div class="display">
+        <h1 class="display__time-left"></h1>
+        <p class="display__end-time"></p>
+      </div>
+    </div>
+
+    <script>
+      const $controller = document.querySelector('.timer__controls');
+
+      const $count = document.querySelector('.display__time-left');
+      const $deadline = document.querySelector('.display__end-time');
+
+      const pad = (e) => String(e).padStart(2, '0');
+
+      const remainTime = (e) => Math.ceil((e - Date.now()) / 1000);
+
+      const rerenderCountdown = (remain, end) => {
+        const [HH, MM] = [~~(remain / 60), pad(remain % 60)];
+        $count.textContent = `${HH}:${MM}`;
+      };
+
+      const rerenderDeadline = (e) => {
+        const d = new Date(e);
+        const [HH, MM] = [d.getHours(), pad(d.getMinutes())];
+        $deadline.textContent = `Be Back At ${HH}:${MM}`;
+      };
+      const stopProgress = () => {
+        $count.textContent = 'end';
+      };
+
+      let timer = null;
+
+      const countdown = (duration) => {
+        clearInterval(timer);
+
+        const end = Date.now() + Number(duration) * 1000;
+
+        rerenderCountdown(remainTime(end), end);
+        rerenderDeadline(end);
+
+        timer = setInterval(() => {
+          const re = remainTime(end);
+          if (re < 0) {
+            clearInterval(timer);
+            stopProgress();
+          } else {
+            rerenderCountdown(re, end);
+          }
+        }, 100);
+      };
+
+      $controller.addEventListener('click', (e) => {
+        if (!e.target.matches('.timer__button')) return;
+        const secs = e.target.dataset.time;
+        countdown(secs);
+      });
+      $controller.querySelector('input').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+
+          const [min, secs = 0] = e.target.value.split(/\s*:\s*/);
+          countdown(min * 60 + secs);
+        }
+      });
+
+      // [...document.querySelectorAll('.timer__button')].forEach(e=>)
+    </script>
+  </body>
+</html>

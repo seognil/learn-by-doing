@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="text" class="search" placeholder="City or State" />
+      <ul class="suggestions">
+        <li>Filter for a city</li>
+        <li>or a state</li>
+      </ul>
+    </form>
+    <script>
+      const endpoint =
+        'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+      const data = [];
+      fetch(endpoint)
+        .then((blob) => blob.json())
+        .then((d) => data.push(...d));
+
+      const format = (str) => str.toLowerCase().replace(/[\s,]/g, '');
+
+      const searchMatched = (data, input) =>
+        data.filter((e) => format(e.city + e.state).includes(format(input)));
+
+      const ul = document.querySelector('.suggestions');
+
+      const hl = (word, input) =>
+        word.replace(RegExp(`([${input}])`, 'gi'), '<span class="hl">$1</span>');
+
+      const thousandComma = (string) => string.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+      const displayResult = (data, input) => {
+        // while (ul.firstElementChild) ul.removeChild(ul.lastChild);
+        ul.innerHTML = data
+          .map(
+            (e) => `<li>
+              <span class="name">${hl(`${e.city}, ${e.state}`, input)}</span>
+              <span class="population">${thousandComma(e.population)}</span>
+            </li>`,
+          )
+          .join('');
+      };
+
+      const searchByInput = (e) => {
+        const input = e.target.value;
+        const result = searchMatched(data, input);
+        displayResult(result.slice(0, 20), input);
+      };
+
+      document.querySelector('.search').addEventListener('input', searchByInput);
+    </script>
+  </body>
+</html>
