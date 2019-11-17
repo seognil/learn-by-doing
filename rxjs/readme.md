@@ -1,6 +1,6 @@
-# Learn Rxjs By Doing
+# Rxjs - Learning By Doing
 
-Quiz from: https://www.learnrxjs.io/recipes/
+Recipes from: https://www.learnrxjs.io/recipes/
 
 - My implements
   - [x] [alphabet-game](./alphabet-game/)
@@ -13,8 +13,8 @@ Quiz from: https://www.learnrxjs.io/recipes/
 
 Using parcel to auto bundling
 
-e.g. `parcel ./rxjs/save-indicator/index.html`
+e.g. `parcel ./save-indicator/index.html`
 
-## TODO
+## References
 
-- [ ] study roadmap
+- [Rxjs 学习指南](https://fe.rualc.com/note/rxjs.html)
