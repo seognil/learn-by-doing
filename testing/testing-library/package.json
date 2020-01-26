@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "start": "parcel src/index.html",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@testing-library/dom": "^6.11.0",
+    "@testing-library/jest-dom": "^5.0.2",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^8.0.4",
+    "@types/jest": "^24.9.0",
+    "@types/node": "^13.1.8",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-test-renderer": "^16.9.1",
+    "jest": "^25.1.0",
+    "parcel": "^1.12.4",
+    "react-test-renderer": "^16.12.0",
+    "typescript": "^3.7.5"
+  }
+}
