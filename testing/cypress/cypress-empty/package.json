@@ -1,0 +1,12 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "cypress": "cypress"
+  },
+  "devDependencies": {
+    "cypress": "^3.8.3"
+  }
+}
