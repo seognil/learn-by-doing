@@ -53,6 +53,7 @@ Because it's the only way to learn how to code -- by practice
 - Terminal
   - [node](https://nodejs.org/en/)
   - [ts-node](https://github.com/TypeStrong/ts-node)
+  - [babel-node](https://github.com/babel/babel/tree/master/packages/babel-node)
   - [Parcel](https://parceljs.org/)
   - [Create React App](https://github.com/facebook/create-react-app)
   - [Vue CLI](https://cli.vuejs.org/)
