@@ -14,7 +14,7 @@ Because it's the only way to learn how to code -- by practice
 
 因为这是学习写代码的唯一方式 —— 动手练习！
 
-## TOC
+## TOC 目录
 
 - **JavaScript**
   - **Language Fundamental**
@@ -29,6 +29,10 @@ Because it's the only way to learn how to code -- by practice
     - [x] [redux](./redux/)
     - [x] [rxjs](./rxjs/)
     - [ ] Webpack
+  - [**Testing**](./testing/)
+    - [x] [Jest](./testing/jest/)
+    - [x] [Testing-Library](./testing/testing-library/)
+    - [x] [Cypress](./testing/cypress/)
   - **reimplement**
     - [x] [redux](./redux/redux-rebuild-core/)
     - [ ] tiny-mvvm
@@ -40,13 +44,14 @@ Because it's the only way to learn how to code -- by practice
   - [ ] Algorithm
   - [ ] Design Patterns
 
-## Playground Equipment
+## Playground Equipment 有用的工具
 
 - Chrome Extension
   - [Octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc)
 - VSCode Extension
   - [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 - Terminal
+  - [node](https://nodejs.org/en/)
   - [ts-node](https://github.com/TypeStrong/ts-node)
   - [Parcel](https://parceljs.org/)
   - [Create React App](https://github.com/facebook/create-react-app)
