@@ -70,8 +70,7 @@
 
       document.addEventListener('keydown', playSound);
 
-      document.querySelector('.keys');
-      addEventListener('transitionend', (e) => {
+      document.querySelector('.keys').addEventListener('transitionend', (e) => {
         e.propertyName === 'transform' &&
           e.target.classList.contains('key') &&
           e.target.classList.remove('playing');
