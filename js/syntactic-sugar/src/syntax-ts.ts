@@ -52,6 +52,8 @@
   process({ name: 'Mick' });
 }
 
+// * ---------------- alternative
+
 {
   interface Entity {
     name: string;
