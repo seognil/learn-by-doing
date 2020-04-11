@@ -1,5 +1,3 @@
-import { delay } from '../util/delay';
-
 type AsyncFunction = () => Promise<unknown>;
 const limitOf = (max: number) => {
   const mq: AsyncFunction[] = [];
@@ -25,6 +23,8 @@ const limitOf = (max: number) => {
 };
 
 // * ================================================================================
+
+import { delay } from '../util/delay';
 
 const limit = limitOf(2);
 
