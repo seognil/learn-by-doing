@@ -1,4 +1,4 @@
-# LEARNING BY DOING
+# LEARN BY DOING
 
 ## What is it 这是什么
 
@@ -24,11 +24,13 @@ Because it's the only way to learn how to code -- by practice
     - [ ] useful functions
     - [ ] tricks
     - [ ] polyfills
+  - **Node.js**
+    - [x] [http](./node/http-server/)：搭建一个简单的服务器
   - **JS lib usage**
     - [x] [react hooks](./react/)
     - [x] [redux](./redux/)
     - [x] [rxjs](./rxjs/)
-    - [ ] Webpack
+    - [x] [Webpack](https://github.com/seognil-study/webpack-playground)
   - [**Testing**](./testing/)
     - [x] [Jest](./testing/jest/)
     - [x] [Testing-Library](./testing/testing-library/)

@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.5",
+    "@types/nodemon": "^1.19.0",
+    "nodemon": "^2.0.4"
+  }
+}
