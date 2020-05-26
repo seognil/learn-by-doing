@@ -25,7 +25,8 @@ Because it's the only way to learn how to code -- by practice
     - [ ] tricks
     - [ ] polyfills
   - **Node.js**
-    - [x] [http](./node/http-server/)：搭建一个简单的服务器
+    - [x] [一个超简单 Node.js 使用 Demo](./node/simple-demo/)
+    - [x] [一个简单的 Node.js 服务器](./node/http-server/)
   - **JS lib usage**
     - [x] [react hooks](./react/)
     - [x] [redux](./redux/)
