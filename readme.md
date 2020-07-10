@@ -25,13 +25,15 @@ Because it's the only way to learn how to code -- by practice
     - [ ] tricks
     - [ ] polyfills
   - **Node.js**
-    - [x] [一个超简单 Node.js 使用 Demo](./node/simple-demo/)
+    - [x] [一个超简单 Node.js 使用例子](./node/simple-demo/)
     - [x] [一个简单的 Node.js 服务器](./node/http-server/)
   - **JS lib usage**
     - [x] [react hooks](./react/)
     - [x] [redux](./redux/)
+    - [x] [react-redux](./react-redux/)
+    - [x] [redux-react-hook](./redux-react-hook/)
     - [x] [rxjs](./rxjs/)
-    - [x] [Webpack](https://github.com/seognil-study/webpack-playground)
+    - [x] [Webpack](https://github.com/seognil-study/webpack-playground)：在另一个 Repo 中进行
   - [**Testing**](./testing/)
     - [x] [Jest](./testing/jest/)
     - [x] [Testing-Library](./testing/testing-library/)
@@ -44,7 +46,7 @@ Because it's the only way to learn how to code -- by practice
 - **Courses**
   - [x] [Javascript 30](./JavaScript30/)
 - **Computer Science by JS**
-  - [ ] Algorithm
+  - [x] [Algorithm](https://github.com/seognil-study/leetcode)：在另一个 Repo 中进行
   - [ ] Design Patterns
 
 ## Playground Equipment 有用的工具
