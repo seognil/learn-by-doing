@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": [
+      "ESNext",
+      "DOM",
+    ],
+    "module": "CommonJS",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "isolatedModules": false,
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "declaration": true,
+    "sourceMap": true,
+  },
+}
