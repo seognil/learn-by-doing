@@ -12,22 +12,30 @@
 ## 目录
 
 - **JavaScript**
+  - [x] [关于 prototype、Object、Function](./js/prototype.ts)
   - **手写系列**
-    - **原生特性**
-      - [x] [手写 ES5 new](./js/reimplement/es5-new-class.js)
+    - **用函数实现关键字**
       - [x] [手写 ES5 寄生组合继承](./js/reimplement/ex5-extends.js)
-      - [x] [模拟模板字符串](./js/reimplement/template-string.ts)
-      - [ ] [手写 bind]
-      - [ ] [手写 flat]
-      - [ ] [手写 promise.all]
+      - [x] [手写 ES5 new](./js/reimplement/es5-new-class.js)
+      - [x] [手写 bind](./js/reimplement/bind.ts)
+      - [x] [手写 call](./js/reimplement/call.ts)
+      - [x] [手写 instanceof](./js/reimplement/instanceof.ts)
+      - [x] [模板字符串](./js/reimplement/template-string.ts)
+      - API
+        - [x] [手写 map](./js/reimplement/array/map.ts)
+        - [x] [手写 filter](./js/reimplement/array/filter.ts)
+        - [x] [手写 reduce](./js/reimplement/array/reduce.ts)
+        - [x] [手写 forEach](./js/reimplement/array/for-each.ts)
+        - [x] [手写 flat](./js/reimplement/array/flap.js)
     - **utils**
       - [x] [简单的深克隆](./js/util/deep-clone.ts)
       - [x] [简单 EventEmitter](./js/util/event-emitter.ts)
       - [x] [逗号分割千分位](./js/util/to-thousand.ts)
       - [x] [uniqBy](./js/util/uniq-by.ts)
-      - [ ] [debounce]
-      - [ ] [throttle]
-      - [ ] [curry]
+      - [ ] [debounce]()
+      - [ ] [throttle]()
+      - [ ] [curry]()
+      - [ ] [pipe]()
   - **语法的使用/语法糖**
     - [x] [asnyc](./js/syntactic-sugar/src/async.ts)
     - [x] [decorator](./js/syntactic-sugar/src/decorator.ts)
