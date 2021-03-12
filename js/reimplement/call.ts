@@ -3,7 +3,7 @@
 {
   const obj = {
     val: 'inner',
-    fn(...args: any[]) {
+    fn(...args: unknown[]) {
       console.warn(...args, this);
     },
   };
@@ -17,20 +17,19 @@ console.log('--------');
 // * ================================================================================ our
 
 {
-  const call = <T>(context: any, fn: Function, ...args: T[]) => {
-    let i = 0;
-    while (context[`__fn${i}`]) i++;
-    const shallowKey = `__fn${i}`;
+  const call = <C, T>(context: C, fn: Function, ...args: T[]) => {
+    const sf = Symbol();
 
-    Object.defineProperty(context, shallowKey, {
-      value: fn,
+    Object.defineProperty(context, sf, {
       enumerable: false,
       configurable: true,
+      writable: true,
+      value: fn,
     });
 
-    const result = context[shallowKey](...args);
-
-    delete context[shallowKey];
+    const sc: C & { [sf]?: Function } = context;
+    const result = sc[sf]?.(...args);
+    delete sc[sf];
 
     return result;
   };
