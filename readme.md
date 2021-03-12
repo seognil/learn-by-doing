@@ -26,7 +26,7 @@
         - [x] [手写 filter](./js/reimplement/array/filter.ts)
         - [x] [手写 reduce](./js/reimplement/array/reduce.ts)
         - [x] [手写 forEach](./js/reimplement/array/for-each.ts)
-        - [x] [手写 flat](./js/reimplement/array/flap.js)
+        - [x] [手写 flat](./js/reimplement/array/flat.js)
     - **utils**
       - [x] [简单的深克隆](./js/util/deep-clone.ts)
       - [x] [简单 EventEmitter](./js/util/event-emitter.ts)
